@@ -9,8 +9,7 @@ public class Solution {
 
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < COUNT; i++) {
-            new SleepingThread();
-            //напишите тут ваш код
+            new SleepingThread().join();
         }
     }
 
@@ -26,7 +25,15 @@ public class Solution {
         public void run() {
             while (true) {
                 System.out.println(this);
-                if (--countdownIndex == 0) return;
+                if (--countdownIndex == 0)
+                    return;
+                try{
+                Thread.sleep(10);
+                } catch (Exception ex) {
+                    System.out.println("Нить прервана");
+                    ex.printStackTrace();
+                }
+
                 //напишите тут ваш код
             }
         }
