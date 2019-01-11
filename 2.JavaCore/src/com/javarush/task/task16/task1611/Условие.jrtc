@@ -1,6 +1,4 @@
-taskKey="com.javarush.task.task16.task1611"
-
-Часы
+taskKey="com.javarush.task.task16.task1611"\n\nЧасы
 
 1. Разберись, что делает программа.
 2. Реализуй логику метода printTikTak:
@@ -9,10 +7,10 @@ taskKey="com.javarush.task.task16.task1611"
 
 
 Требования:
-1.	Метод printTikTak должен выводить две строчки: "Tik" и "Tak".
+1.	Метод printTikTak должен выводить две строчки: &quot;Tik&quot; и &quot;Tak&quot;.
 2.	Метод printTikTak должен работать примерно секунду.
 3.	Метод printTikTak должен два раза заснуть на полсекунды. Используй метод Thread.sleep(500).
-4.	В консоли не должно быть сообщений после фразы "Double-check".
+4.	В консоли не должно быть сообщений после фразы &quot;Double-check&quot;.
 5.	Метод main должен создавать объект типа Clock.
 
 
