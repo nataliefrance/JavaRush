@@ -46,8 +46,8 @@ public class Beach implements Comparable<Beach>{
     }
 
     public static void main(String[] args) {
-//        Beach b1 = new Beach("B1", 200, 10);
-//        Beach b2 = new Beach("B2", 50, 100);
-//        System.out.println(b1.compareTo(b2));
+        Beach b1 = new Beach("B1", 200, 100);
+        Beach b2 = new Beach("B2", 190, 10);
+        System.out.println(b1.compareTo(b2));
     }
 }
