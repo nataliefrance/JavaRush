@@ -1,12 +1,11 @@
 package com.javarush.task.task16.task1630;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Solution {
     public static String firstFileName;
     public static String secondFileName;
-
-
 
     static {
         try {
@@ -17,7 +16,6 @@ public class Solution {
             e.printStackTrace();
         }
     }
-
 
     public static void main(String[] args) throws IOException, InterruptedException {
         systemOutPrintln(firstFileName);
@@ -35,15 +33,23 @@ public class Solution {
 
     public static class ReadFileThread extends Thread implements ReadFileInterface {
         String fileName;
+        ArrayList<String> list = new ArrayList<>();
 
         @Override
         public void run() {
             try {
-                String s = getFileContent();
+                File file = new File(fileName);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                String s;
+                while ((s = reader.readLine()) != null){
+                    list.add(s);
+                }
+                getFileContent();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+
         @Override
         public void setFileName(String fullFileName) {
             fileName = fullFileName;
@@ -51,13 +57,11 @@ public class Solution {
 
         @Override
         public String getFileContent() throws IOException {
-            FileInputStream is = new FileInputStream(fileName);
-            String s = "";
-            while (is.available() > 0){
-                s = s + ((char) is.read());
+            String result = "";
+            for (int i = 0; i < list.size(); i++) {
+                result += list.get(i) + " ";
             }
-            is.close();
-            return s;
+            return result;
         }
     }
 
@@ -67,6 +71,4 @@ public class Solution {
         void join() throws InterruptedException;
         void start();
     }
-
-    //add your code here - добавьте код тут
 }
