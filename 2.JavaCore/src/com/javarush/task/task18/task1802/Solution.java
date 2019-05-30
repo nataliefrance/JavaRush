@@ -23,6 +23,7 @@ public class Solution {
                 min = i;
             }
         }
+
         System.out.println(min);
         fis.close();
     }
